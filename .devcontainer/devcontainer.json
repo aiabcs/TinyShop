@@ -1,33 +1,33 @@
 {
-    "name": "TinyShop",
-    "image": "mcr.microsoft.com/devcontainers/dotnet:dev-9.0-bookworm",
-    "features": {
-        "ghcr.io/devcontainers/features/node:1": {
+  "name": "TinyShop",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:dev-9.0-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
     },
-        "ghcr.io/devcontainers/features/azure-cli:1": {},
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        "ghcr.io/devcontainers/features/powershell:1": {}
-    },
-    "postCreateCommand": "rm -f .npmrc && npm install && npm install -g . ; az login --use-device-code",
- 
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-dotnettools.csdevkit",
-                "GitHub.copilot-chat",
-                "GitHub.copilot"
-            ],
-            "settings": {
-                "remote.autoForwardPorts": true,
-                "remote.autoForwardPortsSource": "hybrid",
-                "remote.otherPortsAttributes": {
-                    "onAutoForward": "ignore"
-                }
-            }
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/powershell:1": {}
+  },
+  "postCreateCommand": "az login --use-device-code",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csdevkit",
+        "GitHub.copilot-chat",
+        "GitHub.copilot"
+      ],
+      "settings": {
+        "remote.autoForwardPorts": true,
+        "remote.autoForwardPortsSource": "hybrid",
+        "remote.otherPortsAttributes": {
+          "onAutoForward": "ignore"
         }
-    },
-    "onCreateCommand": "dotnet new install Aspire.ProjectTemplates::*-*",
-    "postStartCommand": "dotnet dev-certs https --trust",
-    "forwardPorts": []
+      }
+    }
+  },
+  "onCreateCommand": "dotnet new install Aspire.ProjectTemplates::*-*",
+  "postStartCommand": "dotnet dev-certs https --trust",
+  "forwardPorts": []
 }
